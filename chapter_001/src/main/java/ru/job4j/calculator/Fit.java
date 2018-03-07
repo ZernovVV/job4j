@@ -14,12 +14,27 @@ public class Fit {
     private double weight;
 
     /**
+     * Общий коэффициент
+     */
+    final double OVERALL_RATIO = 1.15;
+
+    /**
+     * Коэффициент для мужчин
+     */
+    final int MALE_RATIO = 100;
+
+    /**
+     * Коэффициент для женщин
+     */
+    final int FEMALE_RATIO = 110;
+
+    /**
      * Идеальный вес для мужщины.
      * @param height Рост.
      * @return идеальный вес.
      */
     double manWeight(double height) {
-        this.weight = (height - 100) * 1.15;
+        this.weight = (height - MALE_RATIO) * OVERALL_RATIO;
         return this.weight;
     }
 
@@ -29,7 +44,7 @@ public class Fit {
      * @return идеальный вес.
      */
     double womanWeight(double height) {
-        this.weight = (height - 110) * 1.15;
+        this.weight = (height - FEMALE_RATIO) * OVERALL_RATIO;
         return this.weight;
     }
 }
