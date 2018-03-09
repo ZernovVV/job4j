@@ -16,17 +16,17 @@ public class Fit {
     /**
      * Общий коэффициент
      */
-    final double OVERALL_RATIO = 1.15;
+    private static final double OVERALL_RATIO = 1.15;
 
     /**
      * Коэффициент для мужчин
      */
-    final int MALE_RATIO = 100;
+    private static final int MALE_RATIO = 100;
 
     /**
      * Коэффициент для женщин
      */
-    final int FEMALE_RATIO = 110;
+    private static final int FEMALE_RATIO = 110;
 
     /**
      * Идеальный вес для мужщины.
