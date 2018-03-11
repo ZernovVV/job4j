@@ -15,7 +15,6 @@ public class Max {
      * @return результат
      */
     public int max(int first, int second) {
-        int res = first < second ? second : first;
-        return res;
+        return first < second ? second : first;
     }
 }
