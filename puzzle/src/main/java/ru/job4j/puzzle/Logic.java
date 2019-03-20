@@ -79,10 +79,10 @@ public class Logic {
                 if (table[j][i] == 1) {
                     count1++;
                 }
-                if (count == table.length || count1 == table.length) {
-                    result = true;
-                    break;
-                }
+            }
+            if (count == table.length || count1 == table.length) {
+                result = true;
+                break;
             }
         }
         return result;
