@@ -1,5 +1,9 @@
 package ru.job4j.condition;
 
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
+
+
 /**
  * Расстояние между точками в системе координат
  * @author vzernov
@@ -8,17 +12,22 @@ package ru.job4j.condition;
  */
 public class Point {
     /**
-     * Координаты по оси X
+     * Поле объекта (координаты по оси X), доступно только конкретному объекту
      */
     private int x;
     /**
-     * Координаты по оси Y
+     * Поле объекта (координаты по оси Y), доступно только конкретному объекту
      */
     private int y;
 
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+    /**
+     * Конструтор, который принимает начальное состояние объекта "точка"
+     * @param first координата x
+     * @param second координата y
+     */
+    public Point(int first, int second) {
+        this.x = first;
+        this.y = second;
     }
 
     /**
@@ -26,9 +35,10 @@ public class Point {
      * @param that координаты второй точки
      * @return расстояние между точками
      */
-    public double distanceTo(Point that) {
-        return Math.sqrt(
-                Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2)
-        );
+    public double distance(Point that) {
+        return sqrt(pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
+    }
+    public void info() {
+        System.out.println(String.format("Point[%s, %s]", this.x, this.y));
     }
 }
