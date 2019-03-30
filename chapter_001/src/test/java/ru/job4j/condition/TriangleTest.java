@@ -11,6 +11,9 @@ import static org.junit.Assert.*;
  * @version 1
  */
 public class TriangleTest {
+    /**
+     * Площадь существующего треугольника
+     */
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
         // создаем три объекта класса Point.
@@ -24,6 +27,20 @@ public class TriangleTest {
         // Задаем ожидаемый результат.
         double expected = 2D;
         //Проверяем результат и ожидаемое значение.
+        assertThat(result, closeTo(expected, 0.1));
+    }
+
+    /**
+     * Треугольник не существует
+     */
+    @Test
+    public void whenAreaSetThreePointsThenTriangleIsNotExist() {
+        Point a = new Point(0, 0);
+        Point b = new Point(0, 0);
+        Point c = new Point(2, 0);
+        Triangle triangle = new Triangle(a, b, c);
+        double result = triangle.area();
+        double expected = -1D;
         assertThat(result, closeTo(expected, 0.1));
     }
 }

@@ -7,14 +7,14 @@ package ru.job4j.condition;
  * @version 1
  */
 public class Triangle {
-    private Point a;
-    private Point b;
-    private Point c;
+    private Point first;
+    private Point second;
+    private Point third;
 
     public Triangle(Point a, Point b, Point c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        this.first = a;
+        this.second = b;
+        this.third = c;
     }
 
     /**
@@ -40,10 +40,10 @@ public class Triangle {
      */
     public double area() {
         double rsl = -1;
-        double ab = this.a.distance(this.b);
-        double ac = this.a.distance(this.c);
-        double bc = this.b.distance(this.c);
-        double p = this.period(ab, ac, bc);
+        double ab = first.distance(second);
+        double ac = first.distance(third);
+        double bc = second.distance(third);
+        double p = period(ab, ac, bc);
         if (this.exist(ab, ac, bc)) {
             rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
