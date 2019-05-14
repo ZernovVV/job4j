@@ -19,6 +19,10 @@ public class Point {
      * Поле объекта (координаты по оси Y), доступно только конкретному объекту
      */
     private int y;
+    /**
+     * Поле объекта (координаты по оси Z), доступно только конкретному объекту
+     */
+    private int z;
 
     /**
      * Конструтор, который принимает начальное состояние объекта "точка"
@@ -28,6 +32,11 @@ public class Point {
     public Point(int first, int second) {
         this.x = first;
         this.y = second;
+    }
+    public Point(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     /**
@@ -40,5 +49,8 @@ public class Point {
     }
     public void info() {
         System.out.println(String.format("Point[%s, %s]", this.x, this.y));
+    }
+    public double distance3d(Point that) {
+        return sqrt(pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2) + Math.pow(this.z - that.z, 2));
     }
 }

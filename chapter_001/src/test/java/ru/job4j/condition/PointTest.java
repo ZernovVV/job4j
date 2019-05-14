@@ -44,4 +44,26 @@ public class PointTest {
         Point second = new Point(2, 2);
         second.info();
     }
+
+    /**
+     * Расстояние между точками в трёхмерном пространстве
+     */
+    @Test
+    public void whenZeroAndTenThenTen3D() {
+        Point first = new Point(0, 0, 0);
+        Point second = new Point(0, 0, 10);
+        double result = first.distance3d(second);
+        System.out.println(String.format("Result is %s", result));
+        assertThat(result, is(10D));
+    }
+
+    /**
+     * Считает расстояния до себя трёхмерном пространстве
+     */
+    @Test
+    public void whenCheckItself3D() {
+        Point point = new Point(0, 0, 0);
+        double result = point.distance(point);
+        assertThat(result, is(0D));
+    }
 }
