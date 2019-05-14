@@ -65,4 +65,37 @@ public class MaxTest {
         int result = maxim.max(3, 1, 3);
         assertThat(result, is(3));
     }
+    @Test
+    public void whenFourthMax() {
+        Max maxim = new Max();
+        int result = maxim.max(1, 2, 3, 4);
+        assertThat(result, is(4));
+    }
+
+    @Test
+    public void whenThirdOfFourMax() {
+        Max maxim = new Max();
+        int result = maxim.max(1, 2, 4, 3);
+        assertThat(result, is(4));
+    }
+    @Test
+    public void whenSecondOfFourMax() {
+        Max maxim = new Max();
+        int result = maxim.max(1, 4, 2, 3);
+        assertThat(result, is(4));
+    }
+
+    @Test
+    public void whenFirstOfFourMax() {
+        Max maxim = new Max();
+        int result = maxim.max(4, 3, 2, 1);
+        assertThat(result, is(4));
+    }
+
+    @Test
+    public void whenAllOfFourEquals() {
+        Max maxim = new Max();
+        int result = maxim.max(8, 8, 8, 8);
+        assertThat(result, is(8));
+    }
 }

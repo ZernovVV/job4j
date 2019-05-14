@@ -26,7 +26,19 @@ public class Max {
      * @return результат
      */
     public int max(int first, int second, int third) {
-        return this.max((this.max(first, second)), third);
+        return max((max(first, second)), third);
+    }
+
+    /**
+     *
+     * @param first первый аргумент
+     * @param second второй аргумент
+     * @param third третий аргумент
+     * @param fourth четвёртый аргумент
+     * @return результат
+     */
+    public int max(int first, int second, int third, int fourth) {
+        return max((max(first, second)), max(third, fourth));
     }
 
 }
