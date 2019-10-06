@@ -30,4 +30,17 @@ public class StartUITest {
         assertThat(expected.getName(), is("Fix same PC"));
         assertThat(expected.getDesc(), is("Fix that old PC again"));
     }
+
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        String[] answers = {"Fix PC", "Just fix that old PC"};
+        Input input = new StubInput(answers);
+        StartUI.createItem(input, tracker);
+        Item created = tracker.findAll()[0];
+        String[] deleteAnswers = {created.getId()};
+        Input deleteItem = new StubInput(deleteAnswers);
+        StartUI.deleteItem(deleteItem, tracker);
+        assertNull(tracker.findById(created.getId()));
+    }
 }
