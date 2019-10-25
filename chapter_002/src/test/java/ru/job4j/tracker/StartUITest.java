@@ -10,7 +10,8 @@ public class StartUITest {
         String[] answers = {"Fix PC", "Just fix that old PC"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
+        //StartUI.createItem(input, tracker);
+        new CreateAction().execute(input, tracker);
         Item created = tracker.findAll()[0];
         Item expected = new Item("Fix PC", "Just fix that old PC", 123L);
         assertThat(created.getName(), is(expected.getName()));
@@ -22,10 +23,12 @@ public class StartUITest {
         String[] answers = {"Fix PC", "Just fix that old PC"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
+        //StartUI.createItem(input, tracker);
+        new CreateAction().execute(input, tracker);
         String[] replaceAnswers = {tracker.findAll()[0].getId(), "Fix same PC", "Fix that old PC again"};
         Input replaceInput = new StubInput(replaceAnswers);
-        StartUI.replaceItem(replaceInput, tracker);
+        //StartUI.replaceItem(replaceInput, tracker);
+        new ReplaceAction().execute(replaceInput, tracker);
         Item expected = tracker.findAll()[0];
         assertThat(expected.getName(), is("Fix same PC"));
         assertThat(expected.getDesc(), is("Fix that old PC again"));
@@ -36,11 +39,13 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         String[] answers = {"Fix PC", "Just fix that old PC"};
         Input input = new StubInput(answers);
-        StartUI.createItem(input, tracker);
+        //StartUI.createItem(input, tracker);
+        new CreateAction().execute(input, tracker);
         Item created = tracker.findAll()[0];
         String[] deleteAnswers = {created.getId()};
         Input deleteItem = new StubInput(deleteAnswers);
-        StartUI.deleteItem(deleteItem, tracker);
+        //StartUI.deleteItem(deleteItem, tracker);
+        new DeleteAction().execute(deleteItem, tracker);
         assertNull(tracker.findById(created.getId()));
     }
 }
